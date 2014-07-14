@@ -1,6 +1,7 @@
+DROP TABLE IF EXISTS user;
 CREATE TABLE user (
   id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  name varchar(50) NOT NULL,
+  username varchar(50) NOT NULL,
   password varchar(50) NOT NULL,
   real_name varchar(50) NOT NULL default '',
   sex ENUM('M', 'F') NOT NULL default 'M',
