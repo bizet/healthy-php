@@ -2,7 +2,10 @@
   include 'medoo.min.php';
 
   class User {
-    private $database = new medoo();
+    private $database; 
+    public function __construct() {
+      $this->database = new medoo();
+    }
     public function reg(
       $username,
       $password,
@@ -12,20 +15,23 @@
       $telephone='',
       $address='') 
     {
-      $user_exist = $database->select('user', 'id', 
-        ['username' => $username]
+      if ($username == '') {
+        throw new Exception('username cannot blank');
+      }
+      $user_exist = $this->database->select('user', 'id', 
+        array('username' => $username)
       );
-      if (count($user_exist)) {
+      if ($user_exist) {
         throw new Exception('username exists');
       }
-      $user_id = $database->insert('user', [
+      $user_id = $this->database->insert('user', array(
         'username' => $username,
         'password' => $password,
         'real_name' => $real_name,
         'sex' => $sex,
         'cell' => $cell,
         'telephone' => $telephone,
-        'address' => $address]);
+        'address' => $address));
       return $user_id;
     }
 

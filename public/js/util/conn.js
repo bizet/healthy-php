@@ -1,8 +1,8 @@
 define(function() {
   return {
-    send_to_server: function(url, data, anddothis, object) {
+    send_to_server: function(data, anddothis, object) {
       $.ajax({
-        url: url,
+        url: '/control/route.php',
         type: 'POST',
         dataType: 'json',
         data: data,

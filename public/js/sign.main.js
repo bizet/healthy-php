@@ -23,7 +23,7 @@ require(['requirejs.config'] , function() {
           }
         };
         _Reg_View.init({elem: elem.reg,});
-        _Login_View.init({elem: elem.login,});
+        //_Login_View.init({elem: elem.login,});
 
       });
     });

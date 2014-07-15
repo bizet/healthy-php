@@ -69,5 +69,5 @@
   </body>
 </html>
 
-<script data-main="public/js/sso.main" src='public/js/lib/require.min.js'></script>
+<script data-main="public/js/sign.main" src='public/js/lib/require.min.js'></script>
 
