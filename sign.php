@@ -85,7 +85,7 @@
     </div>
   </body>
 </html>
-<input id="ref" name="ref" value="<?php echo $_GET['ref']?>" />
+<input id="ref" type="hidden" name="ref" value="<?php echo $_GET['ref']?>" />
 <script data-main="public/js/sign.main" src='public/js/lib/require.min.js'>
 </script>
 
