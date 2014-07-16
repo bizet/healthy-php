@@ -33,7 +33,7 @@
     #panel-user-info span,
     #panel-user-info textarea,
     #panel-user-info input {
-      font-size: .7em;
+      font-size: .9em;
 
     }
     #panel-user-info label {
