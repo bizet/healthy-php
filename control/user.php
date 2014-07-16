@@ -29,6 +29,11 @@
         $this->session['user'] = array(
           'id' => $user_id,
           'username' => $this->var_list['username'],
+          'real_name' => $this->var_list['real_name'],
+          'sex' => $this->var_list['sex'],
+          'cell' => $this->var_list['cell'],
+          'telephone' => $this->var_list['telephone'],
+          'address' => $this->var_list['address']
         );
         return json_encode(array(
           'result' => 'ok'
