@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,7 +25,7 @@
         <div class="tab-pane fade in active clearfix" id="login">
           <p>
           <label for="login_input_email">用户名 <span class="input_require">*</span></label>
-          <input class="form-control" type="text" id="login_input_email" placeholder="email" />
+          <input class="form-control" type="text" id="login_input_email" placeholder="三位以上字母数字" />
           <span class="input_alert" id="login_input_email_alert" style="display:none"></span>
           </p>
           <p>
@@ -55,6 +58,13 @@
             <input class="form-control" type="text" id="reg_input_real_name" name="reg_input_real_name" placeholder="name display on page" />
           </p>
           <p>
+            <label for="reg_input_sex">性别</label>
+            <select class="form-control" id="reg_input_sex" name="reg_input_sex">
+              <option value="M">男</option>
+              <option value="F">女</option>
+            </select>
+          </p>
+          <p>
             <label for="reg_input_cell">手机</label>
             <input class="form-control" type="text" id="reg_input_cell" name="reg_input_cell" placeholder="name display on page" />
           </p>
@@ -75,6 +85,7 @@
     </div>
   </body>
 </html>
-
-<script data-main="public/js/sign.main" src='public/js/lib/require.min.js'></script>
+<input id="ref" name="ref" value="<?php echo $_GET['ref']?>" />
+<script data-main="public/js/sign.main" src='public/js/lib/require.min.js'>
+</script>
 

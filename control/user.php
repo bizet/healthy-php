@@ -2,43 +2,36 @@
   require(dirname(__FILE__).'/../model/user.model.php');
   class User_Control {
     private $method_list; 
-    public function __construct($method, $var_list, $session) {
+    public function __construct($method, $var_list, &$session) {
       $this->method_list = array(
         'reg' => 'reg'
       );
       $this->method = $method;
       $this->var_list = $var_list;
-      $this->session = $session;
+      $this->session = &$session;
     }
     public function run() {
-      return call_user_func( array( $this, $this->method_list[$this->method] ) ,  $this->var_list);
+      return call_user_func( array( $this, $this->method_list[$this->method] ) );
     }
 
-    public function reg($var_list) {
+    public function reg() {
       $user = new User();
       try {
         $user_id = $user->reg(  
-          $var_list['username'],
-          $var_list['password'],
-          $var_list['real_name'],
-          $var_list['sex'],
-          $var_list['cell'],
-          $var_list['telephone'],
-          $var_list['address']
+          $this->var_list['username'],
+          $this->var_list['password'],
+          $this->var_list['real_name'],
+          $this->var_list['sex'],
+          $this->var_list['cell'],
+          $this->var_list['telephone'],
+          $this->var_list['address']
         );
         $this->session['user'] = array(
           'id' => $user_id,
-          'username' => $username,
+          'username' => $this->var_list['username'],
         );
-        if (isset($this->session['ref'])) {
-          $ref = $this->session['ref'];
-        }
-        else {
-          $ref = '/index';
-        }
         return json_encode(array(
-          'result' => 'ok',
-          'ref' => $ref
+          'result' => 'ok'
         ));
       }
       catch(Exception $e)

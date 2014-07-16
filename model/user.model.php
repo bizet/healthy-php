@@ -1,5 +1,5 @@
 <?php
-  include 'medoo.min.php';
+  require(dirname(__FILE__).'/medoo.min.php');
 
   class User {
     private $database; 

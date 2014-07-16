@@ -2,7 +2,7 @@
   session_start();
 
   if (!isset($_SESSION['user'])) {
-    header("Location: sign.php?ref=".urlencode("index.php"));
+    header("Location: sign.php?ref=".urlencode("user.php"));
     exit();
   }
 ?>
