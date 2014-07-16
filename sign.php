@@ -37,33 +37,40 @@
           </p>
 
         </div>
-        <div class="tab-pane fade clearfix" id="reg">
+        <form class="tab-pane fade clearfix" id="reg">
           <p>
-          <label for="reg_input_username">用户名 <span class="input_require">*</span></label>
-          <input class="form-control" type="text" id="reg_input_username" placeholder="三位以上字母数字" />
-          <span class="input_alert" id="reg_input_username_alert" style="display:none"></span>
+            <label for="reg_input_username">用户名 <span class="input_require">*</span></label>
+            <input class="form-control" type="text" id="reg_input_username" name="reg_input_username" placeholder="三位以上字母数字" />
           </p>
           <p>
-          <label for="reg_input_password">密码 <span class="input_require">*</span></label>
-          <input class="form-control" type="password" id="reg_input_password" placeholder="三位以上任意字符" />
-          <span class="input_alert" id="reg_input_password_alert" style="display:none"></span>
+            <label for="reg_input_password">密码 <span class="input_require">*</span></label>
+            <input class="form-control" type="password" id="reg_input_password" name="reg_input_password" placeholder="三位以上任意字符" />
+          </p>
+          <p>
+            <label for="reg_input_password_confirm">重复密码 <span class="input_require">*</span></label>
+            <input class="form-control" type="password" id="reg_input_password_confirm" name="reg_input_password_confirm" placeholder="重复输入刚才设定的密码" />
+          </p>
+          <p>
+            <label for="reg_input_real_name">中文姓名</label>
+            <input class="form-control" type="text" id="reg_input_real_name" name="reg_input_real_name" placeholder="name display on page" />
+          </p>
+          <p>
+            <label for="reg_input_cell">手机</label>
+            <input class="form-control" type="text" id="reg_input_cell" name="reg_input_cell" placeholder="name display on page" />
+          </p>
+          <p>
+            <label for="reg_input_telephone">固定电话</label>
+            <input class="form-control" type="text" id="reg_input_telephone" name="reg_input_telephone" placeholder="name display on page" />
+          </p>
+          <p>
+            <label for="reg_input_address">地址</label>
+            <input class="form-control" type="text" id="reg_input_address" name="reg_input_address" placeholder="name display on page" />
+          </p>
+          <p>
+            <button class="btn btn-primary pull-right" id="reg_submit">注册</button>
           </p>
 
-
-          <p>
-          <label for="reg_input_password_confirm">重复密码 <span class="input_require">*</span></label>
-          <input class="form-control" type="password" id="reg_input_password_confirm" placeholder="重复输入刚才设定的密码" />
-          <span class="input_alert" id="reg_input_password_confirm_alert" style="display:none"></span>
-          </p>
-          <p>
-          <label for="reg_input_nick_name">中文姓名</label>
-          <input class="form-control" type="text" id="reg_input_nick_name" placeholder="name display on page" />
-          </p>
-          <p>
-          <button class="btn btn-primary pull-right" id="reg_submit">注册</button>
-          </p>
-
-        </div>
+        </form>
       </div>
     </div>
   </body>

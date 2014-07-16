@@ -7,6 +7,15 @@ define(function() {
     valid_action: 'focusout',
     required: false,
   };
+  var validation = {
+    'require': function(_val) {
+      var input_value = _val;
+      if (!input_value || input_value.replace(/^\s+|\s+$/g, '') == '') {
+        return false;
+      }
+      return true;
+    },
+  };
   function Input_Alert(_option) {
     var _this = this;
     this.option = $.extend({}, default_option, _option);
