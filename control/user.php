@@ -14,37 +14,55 @@
       return call_user_func( array( $this, $this->method_list[$this->method] ) );
     }
 
+    public function login() {
+      $user = new User();
+      try {
+        $res = $user->login(
+          $this->var_list['username'],
+          md5($this->var_list['password'])
+        );
+        if (!$res) {
+          return array(
+            'result' => 'failed'
+          );
+        }
+        $this->session['user'] = $user->get_info($this->var_list['username']);
+        return array(
+          'result' => 'ok'
+        );
+      }
+      catch(Exception $e)
+      {
+        return array(
+          'result' => 'err',
+          'message' => $e->getMessage()
+        );
+      }
+    }
+
     public function reg() {
       $user = new User();
       try {
         $user_id = $user->reg(  
           $this->var_list['username'],
-          $this->var_list['password'],
+          md5($this->var_list['password']),
           $this->var_list['real_name'],
           $this->var_list['sex'],
           $this->var_list['cell'],
           $this->var_list['telephone'],
           $this->var_list['address']
         );
-        $this->session['user'] = array(
-          'id' => $user_id,
-          'username' => $this->var_list['username'],
-          'real_name' => $this->var_list['real_name'],
-          'sex' => $this->var_list['sex'],
-          'cell' => $this->var_list['cell'],
-          'telephone' => $this->var_list['telephone'],
-          'address' => $this->var_list['address']
-        );
-        return json_encode(array(
+        $this->session['user'] = $user->get_info($this->var_list['username']);
+        return array(
           'result' => 'ok'
-        ));
+        );
       }
       catch(Exception $e)
       {
-        return json_encode(array(
+        return array(
           'result' => 'err',
           'message' => $e->getMessage()
-        ));
+        );
       }
     }
   }

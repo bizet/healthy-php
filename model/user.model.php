@@ -6,6 +6,37 @@
     public function __construct() {
       $this->database = new medoo();
     }
+    public function get_info($username) {
+      if ($username == '') {
+        throw new Exception('get user info but username is blank');
+      }
+      $user_info = $this->database->select('user', '*', array(
+        'username' => $username,
+        'LIMIT' => 1
+      ));
+      if (!$user_info) {
+        throw new Exception('no user find, username: ' . $username);
+      }
+      return $user_info[0];
+    }
+
+    public function login(
+      $username,
+      $password)
+    {
+      if ($username == '' || $password == '') {
+        throw new Exception('login but username or password is blank.');
+      }
+      $user_exist = $this->database->select('user', 'id', array(
+        'username' => $username,
+        'password' => $password
+      ));
+      if ($user_exist) {
+        return true;
+      }
+      return false;
+    }
+
     public function reg(
       $username,
       $password,

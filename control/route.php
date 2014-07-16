@@ -14,5 +14,5 @@
   $matches = array();
   if (preg_match('#/([^/]+)/([^/]+)#', $_REQUEST['url'], $matches)) {
     $obj = new $class_list[$matches[1]]($matches[2], $_REQUEST, $_SESSION);
-    echo $obj->run();
+    echo json_encode($obj->run());
   }
