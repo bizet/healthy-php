@@ -22,7 +22,7 @@ define(["util/conn"], function(_c) {
       address: this.address
     }, function(_b) {
       if (_b.result == 'ok') {
-        _opt.if_ok.call(object, _b.ref);
+        _opt.if_ok.call(object);
       }
       else {
         if (_b.message == 'username exists') {
@@ -34,11 +34,19 @@ define(["util/conn"], function(_c) {
       }
     }, this);
   };
-  User.prototype.login = function(anddothis, object) {
-    _c.send_to_server('/user/sign_on', {
+  User.prototype.login = function(_opt, object) {
+    _c.send_to_server({
+      url: '/user/login',
       username: this.username,
       password: this.password
-    }, anddothis, object);
+    }, function(_b) {
+      if (_b.result == 'ok') {
+        _opt.if_ok.call(object);
+      }
+      else {
+        _opt.if_failed.call(object);
+      }
+    }, this);
   };
   User.prototype.get = function(username, anddothis, object) {
     _c.send_to_server('/user/get', {username: username}, anddothis, object);

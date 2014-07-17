@@ -4,7 +4,8 @@
     private $method_list; 
     public function __construct($method, $var_list, &$session) {
       $this->method_list = array(
-        'reg' => 'reg'
+        'reg' => 'reg',
+        'login' => 'login'
       );
       $this->method = $method;
       $this->var_list = $var_list;
@@ -78,6 +79,13 @@
     'address' => 'test1'
     ));
   echo $obj->run();
-  */
+  
+  $session = array();
+  $obj = new User_Control('login', array(
+    'username' => 'test',
+    'password' => 'asb111',
+    ), $session);
+  var_dump($obj->run());
+*/
 
 ?>

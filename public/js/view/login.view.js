@@ -1,62 +1,38 @@
 
-define(['controllers/user.control', 'models/input_alert.model', 'controllers/validation.control'], 
-  function(_User_Control, _Input_Alert, _Validation) {
+define(['model/user.model', 'lib/jquery/localization/messages_zh.min'], 
+  function(_User) {
     return new (function() {
-      var email_static_validation = function(_item) {
-        var email = _item.get_input_val();
-        if (!_Validation.check_require(email)) {
-          _item.show_danger('username required');
-          return false;
-        }
-        return true;
-      };
-
-      var password_static_validation = function(_item) {
-        var password = _item.get_input_val();
-        if (!_Validation.check_require(password)) {
-          _item.show_danger('password required');
-          return false;
-        }
-        return true;
-      };
-
       this.init = function(_opt) {
         var option = _opt;
         var elem = option.elem;
-        var input_email = new _Input_Alert({
-          input: elem.input_email,
-          alert: elem.input_email_alert,
-          validation: function(_item) {
-            var email = _item.get_input_val();
-            if (!email_static_validation(_item)) return false;
-            _User_Control.check_user_exists({
-              email: email,
-              if_exists: function() {
-              },
-              if_not_exists: function() {
-                _item.show_danger('user account not exists, try register');
-              },
+        var validator = elem.validate({
+          rules: {
+            login_input_username: {
+              required: true,
+              minlength: 3
+            },
+            login_input_password: {
+              required: true,
+              minlength: 5
+            }
+          },
+          submitHandler: function() {
+            var user = new _User({
+              username: $('#login_input_username').val(),
+              password: $('#login_input_password').val()
             });
-          }
-        });
-        var input_password = new _Input_Alert({
-          input: elem.input_password,
-          alert: elem.input_password_alert,
-          validation: function(_item) {
-            if (!password_static_validation(_item)) return false;
-          }
-        });
-        elem.btn_submit.click(function() {
-          if (email_static_validation(input_email)
-            && password_static_validation(input_password)) {
-            _User_Control.login({
-              email: input_email.get_input_val(), 
-              password: input_password.get_input_val(),
-              if_password_not_correct: function() {
-                input_password.show_danger('password wrong');
+            user.login({
+              if_ok: function() {
+                window.location = $('#ref').val(); return;
+              },
+              if_failed: function() {
+                this.showErrors({
+                  'login_input_password': '用户名或密码错误'
+                });
               }
-            });
+            }, this);
           }
+
         });
       };
     })();

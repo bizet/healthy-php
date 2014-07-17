@@ -28,8 +28,10 @@
         throw new Exception('login but username or password is blank.');
       }
       $user_exist = $this->database->select('user', 'id', array(
-        'username' => $username,
-        'password' => $password
+        'AND' => array(
+          'username' => $username,
+          'password' => $password
+        )
       ));
       if ($user_exist) {
         return true;

@@ -1,6 +1,6 @@
 
-define(['model/user.model', 'model/input_alert.model', 'lib/jquery/localization/messages_zh.min'], 
-  function(_User, _Input_Alert) {
+define(['model/user.model', 'lib/jquery/localization/messages_zh.min'], 
+  function(_User) {
     return new (function() {
       this.init = function(_opt) {
         var option = _opt;
@@ -32,7 +32,7 @@ define(['model/user.model', 'model/input_alert.model', 'lib/jquery/localization/
               address: $('#reg_input_address').val()
             });
             user.reg({
-              if_ok: function(ref) {
+              if_ok: function() {
                 window.location = $('#ref').val(); return;
               },
               if_username_already_exists: function() {

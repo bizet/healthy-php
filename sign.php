@@ -22,22 +22,20 @@
         <li><a href="#reg" data-toggle="tab">注册</a></li>
       </ul>
       <div class="tab-content">
-        <div class="tab-pane fade in active clearfix" id="login">
+        <form class="tab-pane fade in active clearfix" id="login">
           <p>
-            <label for="login_input_email">用户名 <span class="input_require">*</span></label>
-            <input class="form-control" type="text" id="login_input_email" placeholder="三位以上字母数字" />
+            <label for="login_input_username">用户名 <span class="input_require">*</span></label>
+            <input class="form-control" type="text" id="login_input_username" name="login_input_username" placeholder="三位以上字母数字" />
           </p>
           <p>
             <label for="login_input_password">密码 <span class="input_require">*</span></label>
-            <input class="form-control" type="password" id="login_input_password" placeholder="default maybe 'asb#1234'" />
+            <input class="form-control" type="password" id="login_input_password" name="login_input_password" placeholder="default maybe 'asb#1234'" />
           </p>
           <p>
-          <button class="btn btn-primary pull-right" id="login_submit">登录</button>
-          </p>
-    <p class="notice"><strong> Notice:</strong> If you used <i>Patch System</i> before, we have import all of your accout information from that system. You may not know a default password has related to your account which is <strong>'asb#1234'</strong> in that system. So if you have your account in SSO system but don't know the password, please try this, Thanks.
+            <button class="btn btn-primary pull-right" id="login_submit">登录</button>
           </p>
 
-        </div>
+        </form>
         <form class="tab-pane fade clearfix" id="reg">
           <p>
             <label for="reg_input_username">用户名 <span class="input_require">*</span></label>
@@ -83,7 +81,7 @@
     </div>
   </body>
 </html>
-<input id="ref" type="hidden" name="ref" value="<?php echo $_GET['ref']?>" />
+<input id="ref" type="hidden" name="ref" value="<?php echo isset($_GET['ref'])?$_GET['ref']:'index.php' ?>" />
 <script data-main="public/js/sign.main" src='public/js/lib/require.min.js'>
 </script>
 
