@@ -1,5 +1,5 @@
 <?php
-  require(dirname(__FILE__).'/medoo.min.php');
+  require_once(dirname(__FILE__).'/medoo.min.php');
 
   class Pressure {
     private $database;
