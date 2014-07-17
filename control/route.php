@@ -1,13 +1,15 @@
 <?php
   session_start();
   require(dirname(__FILE__).'/user.php');
+  require(dirname(__FILE__).'/pressure.php');
 
   if (!isset($_REQUEST['url'])) {
     die('Request URL catch failed!');
   }
 
   $class_list = array(
-    'user' => 'User_Control'
+    'user' => 'User_Control',
+    'pressure' => 'Pressure_Control'
   );
 
 
