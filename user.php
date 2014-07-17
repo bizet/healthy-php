@@ -16,6 +16,7 @@
   <meta http-equiv="Expires" content="0" />
   <link rel="stylesheet" href="public/css/lib/bootstrap.min.css">
   <link rel="stylesheet" href="public/css/lib/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.1/css/jquery.dataTables.css">
   <style>
     section {
       width: 80%;
@@ -42,8 +43,10 @@
   <section id="info">    
     <?php require(dirname(__FILE__).'/user.health.php'); ?>
     <?php require(dirname(__FILE__).'/user.account.php'); ?>
+    <div style="clear:both"></div>
   </section>
   <section id="pressure">
+    <?php require(dirname(__FILE__).'/user.pressure.php'); ?>
   </section>
 </body>
 </html>
