@@ -24,14 +24,12 @@
       <div class="tab-content">
         <div class="tab-pane fade in active clearfix" id="login">
           <p>
-          <label for="login_input_email">用户名 <span class="input_require">*</span></label>
-          <input class="form-control" type="text" id="login_input_email" placeholder="三位以上字母数字" />
-          <span class="input_alert" id="login_input_email_alert" style="display:none"></span>
+            <label for="login_input_email">用户名 <span class="input_require">*</span></label>
+            <input class="form-control" type="text" id="login_input_email" placeholder="三位以上字母数字" />
           </p>
           <p>
-          <label for="login_input_password">密码 <span class="input_require">*</span></label>
-          <input class="form-control" type="password" id="login_input_password" placeholder="default maybe 'asb#1234'" />
-          <span class="input_alert" id="login_input_password_alert" style="display:none"></span>
+            <label for="login_input_password">密码 <span class="input_require">*</span></label>
+            <input class="form-control" type="password" id="login_input_password" placeholder="default maybe 'asb#1234'" />
           </p>
           <p>
           <button class="btn btn-primary pull-right" id="login_submit">登录</button>
