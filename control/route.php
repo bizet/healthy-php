@@ -18,3 +18,4 @@
     $obj = new $class_list[$matches[1]]($matches[2], $_REQUEST, $_SESSION);
     echo json_encode($obj->run());
   }
+?>

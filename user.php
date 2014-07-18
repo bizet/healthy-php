@@ -48,5 +48,11 @@
   <section id="pressure">
     <?php require(dirname(__FILE__).'/user.pressure.php'); ?>
   </section>
+  <input type="hidden" id="user_id" value="<?php echo $_SESSION['user']['id'] ?>" />
 </body>
 </html>
+<script data-main="public/js/user.main" src='public/js/lib/require.min.js'>
+  require.config({
+      urlArgs: "bust=" + (new Date()).getTime()
+  });
+</script>
