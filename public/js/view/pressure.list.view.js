@@ -1,11 +1,28 @@
 
-define(['datatable'], 
+define(['datatables'], 
   function() {
     return new (function() {
       this.init = function(_opt) {
         var option = _opt;
         var elem = option.elem;
-        elem.find('#pressure-list').DataTable({
+        elem.find('#pressure-list').dataTable({
+          /*
+          'bProcessing': true,
+          "bServerSide": true,
+          "sAjaxSource": "control/route.php",
+          "sServerMethod": "POST",
+          "aoColumns": [
+            { "mData": "time" },
+            { "mData": "systolic" },
+            { "mData": "diastolic" },
+            { "mData": "heart_rate" }
+          ],
+          "fnServerParams": function ( aoData ) {
+            aoData.push({"name": "url", "value": "/pressure/get_all_list"});
+            aoData.push({"name": "user_id", "value": $('#user_id').val()});
+          }
+          */
+          'processing': true,
           'serverSide': true,
           'ajax': {
             'url': 'control/route.php',

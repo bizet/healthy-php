@@ -14,9 +14,11 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Cache-Control" content="no-cache,must-revalidate" />
   <meta http-equiv="Expires" content="0" />
-  <link rel="stylesheet" href="public/css/lib/bootstrap.min.css">
-  <link rel="stylesheet" href="public/css/lib/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="//cdn.datatables.net/1.10.1/css/jquery.dataTables.css">
+  <!--link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css"-->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css">
+  <!--link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap-theme.min.css"-->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="public/css/lib/datatables/css/jquery.dataTables.min.css">
   <style>
     section {
       width: 80%;
