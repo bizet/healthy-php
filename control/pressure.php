@@ -4,13 +4,41 @@
     private $method_list; 
     public function __construct($method, $var_list) {
       $this->method_list = array(
-        'get_all_list' => 'get_all_list'
+        'get_all_list' => 'get_all_list',
+        'get_list' => 'get_list'
       );
       $this->method = $method;
       $this->var_list = $var_list;
     }
     public function run() {
       return call_user_func( array( $this, $this->method_list[$this->method] ) );
+    }
+
+    public function get_list() {
+      try {
+        $start = $this->var_list['start'];
+        $length = $this->var_list['length'];
+        $draw = $this->var_list['draw'];
+        $user_id = $this->var_list['user_id'];
+        $p = new Pressure();
+        $total = $p->count($user_id);
+        $res = $p->get_list($user_id, $start, $length);
+        return array(
+          'draw' => $draw,
+          'recordsTotal' => $total,
+          'recordsFiltered' => $total,
+          'data' => ($res ? $res: array())
+        );
+      }
+      catch(Exception $e)
+      {
+        return array(
+          'recordsTotal' => 0,
+          'recordsFiltered' => 0,
+          'data' => [],
+          'err' => $e->getMessage()
+        );
+      }
     }
 
     public function get_all_list() {
@@ -53,6 +81,12 @@
     'password' => 'asb111',
     ), $session);
   var_dump($obj->run());
+$obj = new Pressure_Control('get_list', array(
+  'user_id' => 1,
+  'start' => 0,
+  'length' => 10,
+  'draw' => 1
+));
+var_dump($obj->run());
 */
-
 ?>
