@@ -30,3 +30,29 @@
     </table>
   </div>
 </div>
+
+<div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">新增一条血压记录</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <li>
+            <label>测量时间</label>
+          </li>
+          <label>收缩压</label>
+          <label>舒张压</label>
+          <label>心率</label>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
