@@ -23,5 +23,18 @@
     public function count($user_id) {
       return $this->database->count('pressure', array('user_id' => $user_id));
     }
+    public function add(
+      $time,
+      $systolic,
+      $diastolic,
+      $heart_rate) 
+    {
+      $p_id = $this->database->insert('pressure', array(
+        'time' => $time,
+        'systolic' => $systolic,
+        'diastolic' => $diastolic,
+        'sex' => $sex));
+      return $p_id;
+    }
   };
 ?>

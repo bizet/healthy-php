@@ -55,25 +55,25 @@
         <form>
           <li>
             <label>测量时间: </label>
-            <input class="form-control" placeholder="" id="input_time">
+            <input class="form-control" placeholder="请输入测试日期时间" id="input-time" name="input-time">
           </li>
           <li>
             <label>收缩压: </label>
-            <input class="form-control" placeholder="">
+            <input class="form-control" placeholder="请输入数字" id="input-systolic" name="input-systolic">
           </li>
           <li>
             <label>舒张压: </label>
-            <input class="form-control" placeholder="">
+            <input class="form-control" placeholder="请输入数字" id="input-diastolic" name="input-systolic">
           </li>
           <li>
             <label>心率: </label>
-            <input class="form-control" placeholder="">
+            <input class="form-control" placeholder="请输入数字" id="input-heart-rate" name="input-heart-rate">
           </li>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">保存</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

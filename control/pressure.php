@@ -5,7 +5,8 @@
     public function __construct($method, $var_list) {
       $this->method_list = array(
         'get_all_list' => 'get_all_list',
-        'get_list' => 'get_list'
+        'get_list' => 'get_list',
+        'add' => 'add'
       );
       $this->method = $method;
       $this->var_list = $var_list;
@@ -55,6 +56,26 @@
       }
       catch(Exception $e)
       {
+        return array(
+          'result' => 'err',
+          'message' => $e->getMessage()
+        );
+      }
+    }
+    public function add() {
+      $p = new Pressure();
+      try {
+        $p_id = $p->add(
+          $this->var_list['time'],
+          $this->var_list['systolic'],
+          $this->var_list['diastolic'],
+          $this->var_list['heart_rate']
+        );
+        return array(
+          'result' => 'ok'
+        );
+      }
+      catch(Exception $e) {
         return array(
           'result' => 'err',
           'message' => $e->getMessage()
