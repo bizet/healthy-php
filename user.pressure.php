@@ -55,19 +55,19 @@
         <form>
           <li>
             <label>测量时间: </label>
-            <input class="form-control">
+            <input class="form-control" placeholder="" id="input_time">
           </li>
           <li>
             <label>收缩压: </label>
-            <input class="form-control">
+            <input class="form-control" placeholder="">
           </li>
           <li>
             <label>舒张压: </label>
-            <input class="form-control">
+            <input class="form-control" placeholder="">
           </li>
           <li>
-            <label>心率</label>
-            <input class="form-control">
+            <label>心率: </label>
+            <input class="form-control" placeholder="">
           </li>
         </form>
       </div>
