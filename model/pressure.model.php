@@ -15,13 +15,13 @@
     public function get_list($user_id, $start, $length) {
       $list = $this->database->select('pressure', "*", array(
         'user_id' => $user_id,
-        'ORDER' => ['time DESC'],
-        'LIMIT' => [$start, $length]
+        'ORDER' => array('time DESC'),
+        'LIMIT' => array($start, $length)
       ));
       return $list;
     }
     public function count($user_id) {
-      return $this->database->count('pressure', ['user_id' => $user_id]);
+      return $this->database->count('pressure', array('user_id' => $user_id));
     }
   };
 ?>
