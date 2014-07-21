@@ -1,11 +1,12 @@
 
-define(['datatables'], 
-  function() {
+define(['control/event.center', 'datatables'], 
+  function(_Event) {
     return new (function() {
+      var option = {};
       this.init = function(_opt) {
-        var option = _opt;
+        option = _opt;
         var elem = option.elem;
-        elem.find('#pressure-list').dataTable({
+        option.datatable = elem.find('#pressure-list').dataTable({
           /*
           'bProcessing': true,
           "bServerSide": true,
@@ -41,7 +42,12 @@ define(['datatables'],
             {'data': 'heart_rate'}
           ]
         });
-      }
+        _Event.register('pressure.list', this);
+        _Event.on('pressure.list', 'update', this.update);
+      };
+      this.update = function() {
+        option.datatable.ajax.reload();
+      };
     })();
   }
 );

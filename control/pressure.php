@@ -69,7 +69,8 @@
           $this->var_list['time'],
           $this->var_list['systolic'],
           $this->var_list['diastolic'],
-          $this->var_list['heart_rate']
+          $this->var_list['heart_rate'],
+          $_SESSION['user']['id']
         );
         return array(
           'result' => 'ok'

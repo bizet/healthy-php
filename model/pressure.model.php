@@ -27,13 +27,15 @@
       $time,
       $systolic,
       $diastolic,
-      $heart_rate) 
+      $heart_rate,
+      $user_id) 
     {
       $p_id = $this->database->insert('pressure', array(
         'time' => $time,
         'systolic' => $systolic,
         'diastolic' => $diastolic,
-        'sex' => $sex));
+        'heart_rate' => $heart_rate,
+        'user_id' => $user_id));
       return $p_id;
     }
   };
