@@ -35,7 +35,7 @@
         return array(
           'recordsTotal' => 0,
           'recordsFiltered' => 0,
-          'data' => [],
+          'data' => array(),
           'err' => $e->getMessage()
         );
       }

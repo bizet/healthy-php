@@ -11,11 +11,24 @@
     width: 90%;
     margin: .2em auto;
   }
+  #modal-add-pressure li {
+    list-style: none;
+    width: 80%;
+    margin: .2em auto;
+  }
+  #modal-add-pressure li label {
+    display: inline-block;
+    width: 40%;
+  }
+  #modal-add-pressure li input {
+    display: inline-block;
+    width: 50%;
+  }
 </style>
 
 <div id="panel-pressure-list" class="panel panel-default">
   <div class="panel-heading">
-    <button class="btn btn-small btn-primary" id=""> 增加一条记录 </button>
+    <button class="btn btn-small btn-primary" id=""  data-toggle="modal" data-target="#modal-add-pressure"> 增加一条记录 </button>
     <span class="pull-right">血压测量历史</span>
   </div>
   <div class="panel-body">
@@ -31,7 +44,7 @@
   </div>
 </div>
 
-<div class="modal fade">
+<div class="modal fade" id="modal-add-pressure">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -41,11 +54,21 @@
       <div class="modal-body">
         <form>
           <li>
-            <label>测量时间</label>
+            <label>测量时间: </label>
+            <input class="form-control" placeholder="" id="input_time">
           </li>
-          <label>收缩压</label>
-          <label>舒张压</label>
-          <label>心率</label>
+          <li>
+            <label>收缩压: </label>
+            <input class="form-control" placeholder="">
+          </li>
+          <li>
+            <label>舒张压: </label>
+            <input class="form-control" placeholder="">
+          </li>
+          <li>
+            <label>心率: </label>
+            <input class="form-control" placeholder="">
+          </li>
         </form>
       </div>
       <div class="modal-footer">
@@ -55,4 +78,3 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
