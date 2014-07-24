@@ -20,6 +20,14 @@
       return $user_info[0];
     }
 
+    public function search($by_what, $value) {
+      $users = $this->database->select('user', '*', array(
+        'LIKE' => array(
+          '%'.$by_what.'%' => $value
+        )
+      ));
+      return $users;
+    }
     public function get_info_by_id($user_id) {
       $user_info = $this->database->select('user', '*', array(
         'id' => $user_id,

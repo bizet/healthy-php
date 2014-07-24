@@ -6,7 +6,8 @@
       $this->method_list = array(
         'reg' => 'reg',
         'login' => 'login',
-        'get_info_by_id' => 'get_info_by_id'
+        'get_info_by_id' => 'get_info_by_id',
+        'search' => 'search'
       );
       $this->method = $method;
       $this->var_list = $var_list;
@@ -14,6 +15,25 @@
     }
     public function run() {
       return call_user_func( array( $this, $this->method_list[$this->method] ) );
+    }
+
+    public function search() {
+      $user = new User();
+      try {
+        $users = $user->search($this->var_list['by_what'], $this->var_list['search_value']);
+        return array(
+          'result' => 'ok',
+          'data' => $users
+        );
+      }
+      catch(Exception $e)
+      {
+        return array(
+          'result' => 'err',
+          'message' => $e->getMessage()
+        );
+      }
+
     }
 
     public function get_info_by_id() {
