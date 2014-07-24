@@ -4,6 +4,13 @@
     header("Location: sign.php?ref=".urlencode("user.php"));
     exit();
   }
+  $user = $_SESSION['user'];
+  if ($user['role'] == 'ADMIN' || $user['role'] == 'DOC') {
+    $user_id = $_GET['user_id'];
+  }
+  else {
+    $user_id = $_SESSION['user']['id'];
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +58,7 @@
   <section id="pressure">
     <?php require(dirname(__FILE__).'/user.pressure.php'); ?>
   </section>
-  <input type="hidden" id="user_id" value="<?php echo $_SESSION['user']['id'] ?>" />
+  <input type="hidden" id="user_id" value="<?php echo $user_id ?>" />
 </body>
 </html>
 <script data-main="public/js/user.main" src='public/js/lib/require.min.js'>

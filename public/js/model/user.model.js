@@ -2,6 +2,7 @@
 define(["util/conn"], function(_c) {
   function User(_user) {
     var user = _user || {};
+    this.id = user.id || '';
     this.username = user.username || '';
     this.password = user.password || '';
     this.real_name = user.real_name || '';
@@ -48,8 +49,18 @@ define(["util/conn"], function(_c) {
       }
     }, this);
   };
-  User.prototype.get = function(username, anddothis, object) {
-    _c.send_to_server('/user/get', {username: username}, anddothis, object);
+  User.prototype.get_info_by_id = function(_opt, object) {
+    _c.send_to_server({
+      url: '/user/get_info_by_id',
+      user_id: this.id
+    }, function(_b) {
+      if (_b.result == 'ok') {
+        _opt.if_ok.call(object, _b.data);
+      }
+      else {
+        _opt.if_failed.call(object);
+      }
+    }, this);
   };
 
   return User;

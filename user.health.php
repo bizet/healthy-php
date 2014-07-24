@@ -35,26 +35,20 @@
   <div class="panel-body">
     <div class="tab-pane clearfix" id="health-info">
       <li>
-        <label for="reg_input_username">身高:</label>
-        <span id="reg_input_username" ><?php echo $_SESSION['user']['height']?></span>
+        <label for="span-height">身高:</label>
+        <span id="span-height" ></span>
       </li>
       <li>
-        <label for="reg_input_real_name">体重:</label>
-        <span id="reg_input_username" ><?php echo $_SESSION['user']['weight']?></span>
+        <label for="span-weight">体重:</label>
+        <span id="span-weight" ></span>
       </li>
       <li>
-        <label for="reg_input_sex">BMI:</label>
-        <span id="reg_input_username" >
-          <?php 
-            $w = (float)$_SESSION['user']['weight'];
-            $h = (float)$_SESSION['user']['height'] / 100;
-            echo $h ? $w/($h*$h) : 0; 
-          ?>
-        </span>
+        <label for="span-bmi">BMI:</label>
+        <span id="span-bmi" ></span>
       </li>
       <li>
-        <label for="reg_input_cell">手机:</label>
-        <span id="reg_input_username" ><?php echo $_SESSION['user']['username']?></span>
+        <label for="span-disease">disease history</label>
+        <span id="span-disease" ></span>
       </li>
       
       <li>

@@ -4,6 +4,7 @@ CREATE TABLE user (
   id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
   username varchar(50) NOT NULL,
   password varchar(50) NOT NULL,
+  role ENUM('ADMIN', 'DOC', 'USER') NOT NULL default 'USER',
   real_name varchar(50) NOT NULL default '',
   sex ENUM('M', 'F') NOT NULL default 'M',
   cell varchar(20) NOT NULL default '',

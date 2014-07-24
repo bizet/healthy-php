@@ -20,6 +20,17 @@
       return $user_info[0];
     }
 
+    public function get_info_by_id($user_id) {
+      $user_info = $this->database->select('user', '*', array(
+        'id' => $user_id,
+        'LIMIT' => 1
+      ));
+      if (!$user_info) {
+        throw new Exception('no user find, user_id: ' . $user_id);
+      }
+      return $user_info[0];
+    }
+
     public function login(
       $username,
       $password)

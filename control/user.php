@@ -5,7 +5,8 @@
     public function __construct($method, $var_list, &$session) {
       $this->method_list = array(
         'reg' => 'reg',
-        'login' => 'login'
+        'login' => 'login',
+        'get_info_by_id' => 'get_info_by_id'
       );
       $this->method = $method;
       $this->var_list = $var_list;
@@ -13,6 +14,24 @@
     }
     public function run() {
       return call_user_func( array( $this, $this->method_list[$this->method] ) );
+    }
+
+    public function get_info_by_id() {
+      $user = new User();
+      try {
+        $user_info = $user->get_info_by_id($this->var_list['user_id']);
+        return array(
+          'result' => 'ok',
+          'data' => $user_info
+        );
+      }
+      catch(Exception $e)
+      {
+        return array(
+          'result' => 'err',
+          'message' => $e->getMessage()
+        );
+      }
     }
 
     public function login() {
