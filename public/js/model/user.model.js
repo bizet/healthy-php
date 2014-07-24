@@ -62,6 +62,21 @@ define(["util/conn"], function(_c) {
       }
     }, this);
   };
+  User.prototype.search = function(_opt, object) {
+    _c.send_to_server({
+      url: '/user/search',
+      by_what: _opt.search_by,
+      search_value: _opt.search_value
+    }, function(_b) {
+      if (_b.result == 'ok') {
+        _opt.if_ok.call(object, _b.data);
+      }
+      else {
+        _opt.if_failed.call(object);
+      }
+
+    }, this);
+  };
 
   return User;
 });
