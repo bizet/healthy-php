@@ -51,9 +51,15 @@
         <span id="span-disease" ></span>
       </li>
       
+      <?php
+        if ($user_id == $_SESSION['user']['id']) {
+      ?>
       <li>
         <button class="btn btn-primary pull-right" id="reg_submit">更新账户信息</button>
       </li>
+      <?php
+        }
+      ?>
 
     </div>
   </div>

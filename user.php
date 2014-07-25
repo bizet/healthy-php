@@ -27,6 +27,10 @@
   <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="public/css/lib/datatables/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="public/css/lib/bootstrap-datetimepicker.min.css">
+  <!--[if lt IE 9]>
+    <script src="//172.24.186.245/jslib/bootstrap/bootstrap3.0.3/assets/js/html5shiv.js"></script>
+    <script src="//172.24.186.245/jslib/bootstrap/bootstrap3.0.3/assets/js/respond.min.js"></script>
+  <![endif]-->
   <style>
     section {
       width: 80%;

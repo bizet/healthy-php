@@ -4,14 +4,14 @@ define(['control/event.center', 'model/user.model'],
       var option = {};
       this.init = function(_opt) {
         option = _opt;
-        option.elem.find('#search-input').change(this.update);
+        option.elem.find('button').click(this.update);
       };
       var update_lists = function(users) {
         var d_list = option.elem.find('#search-list');
         d_list.html('');
         for (var i = users.length - 1; i >= 0; i--) {
           d_list.append(
-            $('<li></li>').append(
+            $('<li class="list-group-item"></li>').append(
               $('<a></a>').html(users[i].real_name).attr({'href': 'user.php?user_id=' + users[i].id, 'target': '_blank'})
             )
           )

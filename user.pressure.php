@@ -1,4 +1,7 @@
 <style>
+  #panel-pressure-list .panel-heading {
+    height: 3.5em;
+  }
   #panel-pressure-list .panel-heading button {
     height: 2em;
     line-height: 1em;
@@ -28,7 +31,13 @@
 
 <div id="panel-pressure-list" class="panel panel-default">
   <div class="panel-heading">
+    <?php
+      if ($user_id == $_SESSION['user']['id']) {
+    ?>
     <button class="btn btn-small btn-primary" id=""  data-toggle="modal" data-target="#modal-add-pressure"> 增加一条记录 </button>
+    <?php
+      }
+    ?>
     <span class="pull-right">血压测量历史</span>
   </div>
   <div class="panel-body">
