@@ -72,7 +72,7 @@
           </li>
           <li>
             <label>舒张压: </label>
-            <input class="form-control" placeholder="请输入数字" id="input-diastolic" name="input-systolic">
+            <input class="form-control" placeholder="请输入数字" id="input-diastolic" name="input-diastolic">
           </li>
           <li>
             <label>心率: </label>

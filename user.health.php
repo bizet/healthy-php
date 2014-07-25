@@ -55,7 +55,7 @@
         if ($user_id == $_SESSION['user']['id']) {
       ?>
       <li>
-        <button class="btn btn-primary pull-right" id="reg_submit">更新账户信息</button>
+        <button class="btn btn-primary pull-right" id="btn-update-health">更新账户信息</button>
       </li>
       <?php
         }
@@ -64,3 +64,35 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal fade" id="modal-update-health">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">update health</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <li>
+            <label>height: </label>
+            <input class="form-control" placeholder="请输入测试日期时间" id="input-height" name="input-height">
+          </li>
+          <li>
+            <label>weight: </label>
+            <input class="form-control" placeholder="请输入数字" id="input-weight" name="input-weight">
+          </li>
+          <li>
+            <label>disease: </label>
+            <input class="form-control" placeholder="请输入数字" id="input-disease" name="input-disease">
+          </li>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" id="submit-update-health">保存</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

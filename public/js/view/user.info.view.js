@@ -1,10 +1,15 @@
-define(['control/event.center', 'model/user.model'], 
+;define(['control/event.center', 'model/user.model'], 
   function(_Event, _User) {
     return new (function() {
       var option = {};
       this.init = function(_opt) {
         option = _opt;
         this.update();
+        option.health_elem.find('#btn-update-health').click(function() {
+          _Event.trigger('user.info.dialog', 'health.show');
+        });
+        _Event.register('user.info', this);
+        _Event.on('user.info', 'update', this.update);
       };
       this.update = function() {
         var user = new _User({

@@ -10,6 +10,9 @@ define(["util/conn"], function(_c) {
     this.cell = user.cell || '';
     this.telephone = user.telephone || '';
     this.address = user.address || '';
+    this.height = user.height || '';
+    this.weight = user.weight || '';
+    this.disease_list = user.disease_list || '';
   };
   User.prototype.reg = function(_opt, object) {
     _c.send_to_server({
@@ -77,6 +80,21 @@ define(["util/conn"], function(_c) {
 
     }, this);
   };
+  User.prototype.update_health = function(_opt, object) {
+    _c.send_to_server({
+      url: '/user/update_health',
+      height: this.height,
+      weight: this.weight,
+      disease_list: this.disease_list
+    }, function(_b) {
+      if (_b.result == 'ok') {
+        _opt.if_ok.call(object, _b.data);
+      }
+      else {
+        _opt.if_failed.call(object);
+      }
+    }, this)
+  }
 
   return User;
 });

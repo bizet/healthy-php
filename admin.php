@@ -23,8 +23,8 @@
   <!--link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap-theme.min.css"-->
   <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   <!--[if lt IE 9]>
-    <script src="//172.24.186.245/jslib/bootstrap/bootstrap3.0.3/assets/js/html5shiv.js"></script>
-    <script src="//172.24.186.245/jslib/bootstrap/bootstrap3.0.3/assets/js/respond.min.js"></script>
+    <script src="//apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="//apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
   <![endif]-->
   <style type="text/css">
     html body nav {

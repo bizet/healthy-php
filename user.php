@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="public/css/lib/datatables/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="public/css/lib/bootstrap-datetimepicker.min.css">
   <!--[if lt IE 9]>
-    <script src="//172.24.186.245/jslib/bootstrap/bootstrap3.0.3/assets/js/html5shiv.js"></script>
-    <script src="//172.24.186.245/jslib/bootstrap/bootstrap3.0.3/assets/js/respond.min.js"></script>
+    <script src="//apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="//apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
   <![endif]-->
   <style>
     section {
@@ -66,7 +66,4 @@
 </body>
 </html>
 <script data-main="public/js/user.main" src='public/js/lib/require.min.js'>
-  require.config({
-      urlArgs: "bust=" + (new Date()).getTime()
-  });
 </script>

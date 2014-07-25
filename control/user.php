@@ -7,7 +7,8 @@
         'reg' => 'reg',
         'login' => 'login',
         'get_info_by_id' => 'get_info_by_id',
-        'search' => 'search'
+        'search' => 'search',
+        'update_health' => 'update_health'
       );
       $this->method = $method;
       $this->var_list = $var_list;
@@ -96,6 +97,34 @@
         return array(
           'result' => 'ok'
         );
+      }
+      catch(Exception $e)
+      {
+        return array(
+          'result' => 'err',
+          'message' => $e->getMessage()
+        );
+      }
+    }
+    public function update_health() {
+      $user = new User();
+      try {
+        $num = $user->update_health(
+          $this->var_list['height'],
+          $this->var_list['weight'],
+          $this->var_list['disease_list'],
+          $this->session['user']['id']
+        );
+        if ($num) {
+          return array(
+            'result' => 'ok'
+          );
+        }
+        else {
+          return array(
+            'result' => 'failed'
+          );
+        }
       }
       catch(Exception $e)
       {

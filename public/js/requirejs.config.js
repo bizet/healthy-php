@@ -13,6 +13,7 @@ define(function() {
       'datatable': ['jquery'],
       'dtpicker': ['bootstrap'],
       'dtpicker-local': ['dtpicker']
-    }
+    },
+    urlArgs: "bust=" + (new Date()).getTime()
   });})();
 });
