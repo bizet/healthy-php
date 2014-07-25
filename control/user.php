@@ -34,7 +34,6 @@
           'message' => $e->getMessage()
         );
       }
-
     }
 
     public function get_info_by_id() {
