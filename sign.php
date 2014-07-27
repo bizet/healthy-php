@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="public/css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/lib/bootstrap-theme.min.css">
     <link href="public/css/sso.css" rel="stylesheet">
-    <title>Tools Passport</title>
+    <title>注册登录</title>
   </head>
   <body>
     <div id='section'>
@@ -29,7 +29,7 @@
           </p>
           <p>
             <label for="login_input_password">密码 <span class="input_require">*</span></label>
-            <input class="form-control" type="password" id="login_input_password" name="login_input_password" placeholder="default maybe 'asb#1234'" />
+            <input class="form-control" type="password" id="login_input_password" name="login_input_password" placeholder="五位以上任意字符" />
           </p>
           <p>
             <button class="btn btn-primary pull-right" id="login_submit">登录</button>
@@ -43,7 +43,7 @@
           </p>
           <p>
             <label for="reg_input_password">密码 <span class="input_require">*</span></label>
-            <input class="form-control" type="password" id="reg_input_password" name="reg_input_password" placeholder="三位以上任意字符" />
+            <input class="form-control" type="password" id="reg_input_password" name="reg_input_password" placeholder="五位以上任意字符" />
           </p>
           <p>
             <label for="reg_input_password_confirm">重复密码 <span class="input_require">*</span></label>

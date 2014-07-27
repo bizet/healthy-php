@@ -29,6 +29,20 @@
     width: 70%;
     margin: .8em auto;
   }
+
+  #modal-update-health li {
+    list-style: none;
+    width: 80%;
+    margin: .2em auto;
+  }
+  #modal-update-health li label {
+    display: inline-block;
+    width: 25%;
+  }
+  #modal-update-health li input {
+    display: inline-block;
+    width: 50%;
+  }
 </style>
 <div class="panel panel-primary" id="panel-health-info">
   <div class="panel-heading">健康信息</div>
@@ -36,18 +50,18 @@
     <div class="tab-pane clearfix" id="health-info">
       <li>
         <label for="span-height">身高:</label>
-        <span id="span-height" ></span>
+        <span id="span-height" ></span> 厘米
       </li>
       <li>
         <label for="span-weight">体重:</label>
-        <span id="span-weight" ></span>
+        <span id="span-weight" ></span> 公斤
       </li>
       <li>
         <label for="span-bmi">BMI:</label>
         <span id="span-bmi" ></span>
       </li>
       <li>
-        <label for="span-disease">disease history</label>
+        <label for="span-disease">疾病史</label>
         <span id="span-disease" ></span>
       </li>
       
@@ -71,21 +85,23 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">update health</h4>
+        <h4 class="modal-title">更新健康信息</h4>
       </div>
       <div class="modal-body">
         <form>
           <li>
-            <label>height: </label>
+            <label>身高: </label>
             <input class="form-control" placeholder="请输入测试日期时间" id="input-height" name="input-height">
+            厘米
           </li>
           <li>
-            <label>weight: </label>
+            <label>体重: </label>
             <input class="form-control" placeholder="请输入数字" id="input-weight" name="input-weight">
+            公斤
           </li>
           <li>
-            <label>disease: </label>
-            <input class="form-control" placeholder="请输入数字" id="input-disease" name="input-disease">
+            <label>疾病史: </label>
+            <!--input class="form-control" placeholder="" id="input-disease" name="input-disease"-->
           </li>
         </form>
       </div>

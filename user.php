@@ -36,6 +36,9 @@
       width: 80%;
       margin: 3em auto;
     }
+    section#info {
+      margin-top: 5em;
+    }
     section#info .panel {
       float: left;
       margin: .2em .5em;
@@ -54,6 +57,7 @@
   </style>
 </head>
 <body>
+  <?php require(dirname(__FILE__).'/nav.php'); ?>
   <section id="info">    
     <?php require(dirname(__FILE__).'/user.health.php'); ?>
     <?php require(dirname(__FILE__).'/user.account.php'); ?>

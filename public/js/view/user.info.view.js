@@ -19,7 +19,9 @@
           if_ok: function(user) {
             option.account_elem.find('#span-username').html(user.username);
             option.account_elem.find('#span-real_name').html(user.real_name);
-            option.account_elem.find('#span-sex').html(user.sex);
+            sexstr = '男';
+            if (user.sex == 'F') sexstr = '女';
+            option.account_elem.find('#span-sex').html(sexstr);
             option.account_elem.find('#span-cell').html(user.cell);
             option.account_elem.find('#span-telephone').html(user.telephone);
             option.account_elem.find('#span-address').html(user.address);

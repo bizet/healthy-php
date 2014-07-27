@@ -5,6 +5,15 @@
     header("Location: sign.php?ref=".urlencode("index.php"));
     exit();
   }
+  $user = $_SESSION['user'];
+  if ($user['role'] != 'ADMIN' && $user['role'] != 'DOC') {
+    header("Location: user.php");
+    exit();
+  }
+  else {
+    header("Location: admin.php");
+    exit();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
