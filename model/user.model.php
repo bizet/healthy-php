@@ -23,8 +23,9 @@
     public function search($by_what, $value) {
       $users = $this->database->select('user', '*', array(
         'LIKE' => array(
-          '%'.$by_what.'%' => $value
-        )
+          $by_what => $value
+        ),
+        $by_what.'[!]' => ''
       ));
       return $users;
     }

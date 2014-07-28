@@ -1,5 +1,5 @@
 
-define(['control/event.center', 'model/pressure.model', 'dtpicker-local', 'lib/jquery/localization/messages_zh.min'], 
+define(['control/event.center', 'model/pressure.model', 'dtpicker-local', 'valid-local'], 
   function(_Event, _Pressure) {
     return new (function() {
       this.init = function(_opt) {

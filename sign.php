@@ -10,8 +10,8 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Cache-Control" content="no-cache,must-revalidate" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="public/css/lib/bootstrap.min.css">
-    <link rel="stylesheet" href="public/css/lib/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//bizet-cn.com/public/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="//bizet-cn.com/public/css/lib/bootstrap-theme.min.css">
     <link href="public/css/sso.css" rel="stylesheet">
     <title>注册登录</title>
   </head>
@@ -82,6 +82,6 @@
   </body>
 </html>
 <input id="ref" type="hidden" name="ref" value="<?php echo isset($_GET['ref'])?$_GET['ref']:'index.php' ?>" />
-<script data-main="public/js/sign.main" src='public/js/lib/require.min.js'>
+<script data-main="public/js/sign.main" src='//bizet-cn.com/public/js/lib/require.min.js'>
 </script>
 

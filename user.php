@@ -25,8 +25,8 @@
   <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css">
   <!--link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap-theme.min.css"-->
   <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="public/css/lib/datatables/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="public/css/lib/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="//bizet-cn.com/public/css/lib/datatables/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="//bizet-cn.com/public/css/lib/bootstrap-datetimepicker.min.css">
   <!--[if lt IE 9]>
     <script src="//apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
     <script src="//apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>

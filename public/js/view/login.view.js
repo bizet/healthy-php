@@ -1,5 +1,5 @@
 
-define(['model/user.model', 'lib/jquery/localization/messages_zh.min'], 
+define(['model/user.model', 'valid-local'], 
   function(_User) {
     return new (function() {
       this.init = function(_opt) {
