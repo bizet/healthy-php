@@ -56,7 +56,7 @@
   </section>
 </body>
 </html>
-<script data-main="public/js/admin.main" src='public/js/lib/require.min.js'>
+<script data-main="public/js/admin.main" src='//bizet-cn.com/public/js/lib/require.min.js'>
   require.config({
       urlArgs: "bust=" + (new Date()).getTime()
   });

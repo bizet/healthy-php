@@ -2,6 +2,7 @@
   session_start();
   require(dirname(__FILE__).'/user.php');
   require(dirname(__FILE__).'/pressure.php');
+  require(dirname(__FILE__).'/disease.php');
 
   if (!isset($_REQUEST['url'])) {
     die('Request URL catch failed!');
@@ -9,7 +10,8 @@
 
   $class_list = array(
     'user' => 'User_Control',
-    'pressure' => 'Pressure_Control'
+    'pressure' => 'Pressure_Control',
+    'disease' => 'Disease_Control'
   );
 
 

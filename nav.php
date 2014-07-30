@@ -60,7 +60,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">搜索用户</a></li>
-        <li><a href="#">修改疾病列表</a></li>
+        <li><a href="#">疾病信息管理</a></li>
         <li><a href="#">更改密码</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
