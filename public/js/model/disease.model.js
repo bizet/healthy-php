@@ -1,10 +1,8 @@
 define(["util/conn"], function(_c) {
   function Pressure(_p) {
     var pressure = _p || {};
-    this.time = pressure.time || '';
-    this.systolic = pressure.systolic || '';
-    this.diastolic = pressure.diastolic || '';
-    this.heart_rate = pressure.heart_rate || '';
+    this.name = pressure.name || '';
+    this.operation = pressure.operation || 'Y';
   };
   Pressure.prototype.add = function(_opt, object) {
     _c.send_to_server({

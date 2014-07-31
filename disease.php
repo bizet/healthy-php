@@ -36,12 +36,26 @@
     #list-group-disease li label {
       width: 45%;
     }
+    #modal-add-disease li {
+      list-style: none;
+      width: 80%;
+      margin: .2em auto;
+    }
+    #modal-add-disease li label {
+      display: inline-block;
+      width: 40%;
+    }
+    #modal-add-disease li input,
+    #modal-add-disease li select {
+      display: inline-block;
+      width: 50%;
+    }
   </style>
 </head>
 <body>
   <?php require(dirname(__FILE__).'/nav.php'); ?>
   <section id="list-disease">
-    <button class="btn btn-primary">增加新的疾病信息</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#modal-add-disease">增加新的疾病信息</button>
     <ul class="list-group" id='list-group-disease'></ul>
   </section>
 
@@ -56,20 +70,20 @@
         <form>
           <li>
             <label>疾病名称: </label>
-            <input class="form-control" placeholder="" id="input-time" name="input-time">
+            <input class="form-control" placeholder="" id="input-name" name="input-name">
           </li>
           <li>
             <label>是否需要填写手术日期: </label>
             <select class="form-control" id="input-operation" name="input-operation">
-              <option>需要</option>
-              <option>不需要</option>
+              <option value='Y'>需要</option>
+              <option value='N'>不需要</option>
             </select>
           </li>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" id="submit-add-pressure">保存</button>
+        <button type="button" class="btn btn-primary" id="submit-add-disease">保存</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

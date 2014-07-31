@@ -4,8 +4,9 @@ define(['control/event.center', 'model/disease.model'],
       var option = {};
       this.init = function(_opt) {
         option = _opt;
-        option.elem.find('button').click();
         this.update();
+        _Event.register('disease.list', this);
+        _Event.on('disease.list', 'update', this.update);
       };
       var update_list = function(list) {
         var d_list = option.elem.find('#list-group-disease');
