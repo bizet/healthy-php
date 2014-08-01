@@ -65,14 +65,15 @@ define(['control/event.center', 'model/user.model', 'model/disease.model', 'util
             var form = option.health_elem.find('form');
             form.find('#input-height').val(user.height);
             form.find('#input-weight').val(user.weight);
-            form.find('#input-disease').val(user.disease);
+            //form.find('#input-disease').val(user.disease);
             var check_list_form = form.find('#disease-checkbox-list');
             check_list_form.html('');
             var d = new _Disease();
             d.get_list({
               if_ok: function(l) {
                 for (var i = l.length - 1; i >= 0; i--) {
-                  check_list_form.append(
+                  var item_li = $('<li></li>');
+                  item_li.append(
                     $('<div class="checkbox"></div>').append(
                       $('<label></label>').append(
                         $('<input type="checkbox"></input>').attr({'value': l[i].id, 'operation': l[i].operation}),
@@ -81,15 +82,24 @@ define(['control/event.center', 'model/user.model', 'model/disease.model', 'util
                     )
                   );
                   if (l[i].operation == 'Y') {
-                    check_list_form.append(
-                      $('<label></label>').html('手术时间'),
-                      $('<input class="form-control"></input>').attr('for', l[i].id).datetimepicker({
+                    item_li.append(
+                      $('<label></label>').html('手术时间').attr('for', 'disease' + l[i].id),
+                      $('<input class="form-control"></input>').attr({'for': l[i].id, 'id': 'disease' + l[i].id}).datetimepicker({
                         autoclose: true,
                         minView: 2,
                         language: 'zh-CN',
                         format: 'yyyy-mm-dd'
                       })
                     );
+                  };
+                  check_list_form.append(item_li);
+                };
+                var disease_list = _Util.str_to_disease(user.disease_list);
+                for (var i = disease_list.length - 1; i >= 0; i--) {
+                  var d_item = disease_list[i];
+                  $('input:checkbox[value=' + d_item.id + ']').attr('checked', true);
+                  if (d_item.operate_date) {
+                    $('input#disease' + d_item.id).val(d_item.operate_date);
                   }
                 };
               }

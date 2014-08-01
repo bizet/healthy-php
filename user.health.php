@@ -21,6 +21,9 @@
   #panel-health-info #span-disease {
     display: inline-block;
   }
+  #panel-health-info #span-disease > span {
+    margin: 0 .2em;
+  }
 
   #panel-health-info button {
     width: 70%;
@@ -47,20 +50,27 @@
     display: inline-block;
     width: 70%;
   }
-  #disease-checkbox-list > label,
-  #disease-checkbox-list > input,
-  #disease-checkbox-list > div
+  #disease-checkbox-list > li {
+    list-style: none;
+    width: 100%;
+  }
+  #disease-checkbox-list > li > label,
+  #disease-checkbox-list > li > input,
+  #disease-checkbox-list > li > div
   {
     display: inline-block;
   }
-  #disease-checkbox-list > div {
+  #disease-checkbox-list > li > div {
     width: 30%;
   }
 
-  #disease-checkbox-list > label {
+  #disease-checkbox-list > li > label {
     width: 25%;
+    height: 2.5em;
+    line-height: 2.5em;
   }
-  #disease-checkbox-list > input {
+  #disease-checkbox-list > li > input {
+    height: 2.5em;
     width: 40%;
   }
 

@@ -7,6 +7,8 @@ require(['requirejs.config'] , function() {
         'view/user.info.view',
         'view/user.info.dialog.view'
       ], function(_Pressure_List_View, _Pressure_Dialog_View, _User_Info_View, _User_Dialog) {
+          $('nav li').removeClass('active');
+          $('a[href="user.php"]').parent().addClass('active');
           _User_Info_View.init({
             account_elem: $('#panel-account-info'),
             health_elem: $('#panel-health-info')
