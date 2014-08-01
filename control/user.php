@@ -8,7 +8,8 @@
         'login' => 'login',
         'get_info_by_id' => 'get_info_by_id',
         'search' => 'search',
-        'update_health' => 'update_health'
+        'update_health' => 'update_health',
+        'update_account' => 'update_account'
       );
       $this->method = $method;
       $this->var_list = $var_list;
@@ -112,6 +113,36 @@
           $this->var_list['height'],
           $this->var_list['weight'],
           $this->var_list['disease_list'],
+          $this->session['user']['id']
+        );
+        if ($num) {
+          return array(
+            'result' => 'ok'
+          );
+        }
+        else {
+          return array(
+            'result' => 'failed'
+          );
+        }
+      }
+      catch(Exception $e)
+      {
+        return array(
+          'result' => 'err',
+          'message' => $e->getMessage()
+        );
+      }
+    }
+    public function update_account() {
+      $user = new User();
+      try {
+        $num = $user->update_account(
+          $this->var_list['real_name'],
+          $this->var_list['sex'],
+          $this->var_list['cell'],
+          $this->var_list['telephone'],
+          $this->var_list['address'],
           $this->session['user']['id']
         );
         if ($num) {

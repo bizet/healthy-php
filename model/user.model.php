@@ -87,6 +87,29 @@
         'address' => $address));
       return $user_id;
     }
+    public function update_account(
+      $real_name,
+      $sex,
+      $cell,
+      $telephone,
+      $address,
+      $user_id) {
+      if ($user_id == '' || $user_id == 0) {
+        throw new Expection('user id cannot be blank');
+      }
+      $num = $this->database->update('user', array(
+        'real_name' => $real_name,
+        'sex' => $sex,
+        'cell' => $cell,
+        'telephone' => $telephone,
+        'address' => $address
+        ),
+        array(
+          'id' => $user_id
+        )
+      );
+      return $num;
+    }
     public function update_health(
       $height = '',
       $weight = '',
