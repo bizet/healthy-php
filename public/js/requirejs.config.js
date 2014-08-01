@@ -17,7 +17,7 @@ define(function() {
       'dtpicker-local': ['dtpicker'],
       'valid': ['jquery'],
       'valid-local': ['valid']
-    },
-    urlArgs: "bust=" + (new Date()).getTime()
+    }
+    //urlArgs: "bust=" + (new Date()).getTime()
   });})();
 });

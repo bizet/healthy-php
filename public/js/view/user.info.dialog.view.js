@@ -1,6 +1,6 @@
 
-define(['control/event.center', 'model/user.model'], 
-  function(_Event, _User) {
+define(['control/event.center', 'model/user.model', 'model/disease.model', 'util/disease', 'dtpicker-local'], 
+  function(_Event, _User, _Disease, _Util) {
     return new (function() {
       var option = null;
       this.init = function(_opt) {
@@ -25,10 +25,19 @@ define(['control/event.center', 'model/user.model'],
             }
           },
           submitHandler: function(form) {
+            var checkers = $(form).find('input:checkbox:checked').map(function() {
+              if ($(this).attr('operation') == 'Y') {
+                return {
+                  id: $(this).attr('value'),
+                  operate_date: $(form).find('input[for=' + $(this).attr('value') + ']').val()
+                };
+              }
+              return {id: $(this).attr('value')};
+            }).get();
             var u = new _User({
               'height': $(form).find('#input-height').val(),
               'weight': $(form).find('#input-weight').val(),
-              'disease': $(form).find('#input-disease').val()
+              'disease_list': _Util.disease_to_str(checkers)
             });
             u.update_health({
               if_ok: function() {
@@ -57,6 +66,34 @@ define(['control/event.center', 'model/user.model'],
             form.find('#input-height').val(user.height);
             form.find('#input-weight').val(user.weight);
             form.find('#input-disease').val(user.disease);
+            var check_list_form = form.find('#disease-checkbox-list');
+            check_list_form.html('');
+            var d = new _Disease();
+            d.get_list({
+              if_ok: function(l) {
+                for (var i = l.length - 1; i >= 0; i--) {
+                  check_list_form.append(
+                    $('<div class="checkbox"></div>').append(
+                      $('<label></label>').append(
+                        $('<input type="checkbox"></input>').attr({'value': l[i].id, 'operation': l[i].operation}),
+                        l[i].name
+                      )
+                    )
+                  );
+                  if (l[i].operation == 'Y') {
+                    check_list_form.append(
+                      $('<label></label>').html('手术时间'),
+                      $('<input class="form-control"></input>').attr('for', l[i].id).datetimepicker({
+                        autoclose: true,
+                        minView: 2,
+                        language: 'zh-CN',
+                        format: 'yyyy-mm-dd'
+                      })
+                    );
+                  }
+                };
+              }
+            })
             option.health_elem.modal('show');
           },
           if_failed: function() {
