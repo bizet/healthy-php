@@ -7,9 +7,7 @@
     margin: .5em auto;
   }
   #panel-health-info label,
-  #panel-health-info span,
-  #panel-health-info textarea,
-  #panel-health-info input {
+  #panel-health-info span {
     font-size: .9em;
   }
   #panel-health-info label {
@@ -17,14 +15,13 @@
     vertical-align: top;
   }
   #panel-health-info span,
-  #panel-health-info textarea,
-  #panel-health-info input {
+  #panel-health-info #span-disease {
     width: 60%;
   }
-  #panel-health-info textarea,
-  #panel-health-info input {
-    border: none;
+  #panel-health-info #span-disease {
+    display: inline-block;
   }
+
   #panel-health-info button {
     width: 70%;
     margin: .8em auto;
@@ -33,16 +30,40 @@
   #modal-update-health li {
     list-style: none;
     width: 80%;
-    margin: .2em auto;
+    margin: .5em auto;
   }
-  #modal-update-health li label {
+  #modal-update-health li > label {
     display: inline-block;
     width: 25%;
+    vertical-align: top;
   }
-  #modal-update-health li input {
+  #modal-update-health li > input
+  {
     display: inline-block;
     width: 50%;
   }
+  #modal-update-health li > div
+  {
+    display: inline-block;
+    width: 70%;
+  }
+  #disease-checkbox-list > label,
+  #disease-checkbox-list > input,
+  #disease-checkbox-list > div
+  {
+    display: inline-block;
+  }
+  #disease-checkbox-list > div {
+    width: 30%;
+  }
+
+  #disease-checkbox-list > label {
+    width: 25%;
+  }
+  #disease-checkbox-list > input {
+    width: 40%;
+  }
+
 </style>
 <div class="panel panel-primary" id="panel-health-info">
   <div class="panel-heading">健康信息</div>
@@ -62,7 +83,7 @@
       </li>
       <li>
         <label for="span-disease">疾病史</label>
-        <span id="span-disease" ></span>
+        <div id="span-disease" ></div>
       </li>
       
       <?php
@@ -101,6 +122,7 @@
           </li>
           <li>
             <label>疾病史: </label>
+            <div id="disease-checkbox-list"></div>
             <!--input class="form-control" placeholder="" id="input-disease" name="input-disease"-->
           </li>
         </form>

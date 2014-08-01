@@ -4,7 +4,7 @@ define(function() {
     disease_to_str: function(list){
       var str_list = [];
       for (var i = list.length - 1; i >= 0; i--) {
-        var item_str = list[i].name + ',' + list[i].operate_date;
+        var item_str = list[i].id + ',' + (list[i].operate_date || '');
         str_list.push(item_str);
       };
       return str_list.join('|');
@@ -14,9 +14,9 @@ define(function() {
       var disease = [];
       for (var i = str_list.length - 1; i >= 0; i--) {
         var item = {};
-        var i = str_list[i].split(',');
-        item.name = i[0];
-        item.operate_date = i[1];
+        var it = str_list[i].split(',');
+        item.id = it[0];
+        item.operate_date = it[1];
         disease.push(item);
       };
       return disease;
