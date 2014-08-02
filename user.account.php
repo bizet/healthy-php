@@ -30,6 +30,22 @@
     width: 70%;
     margin: .8em auto;
   }
+  #modal-update-account li {
+    list-style: none;
+    width: 80%;
+    margin: .5em auto;
+  }
+  #modal-update-account li > label {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+  }
+  #modal-update-account li > input,
+  #modal-update-account li > select
+  {
+    display: inline-block;
+    width: 50%;
+  }
 </style>
 
 <div class="panel panel-primary" id="panel-account-info">
@@ -64,7 +80,7 @@
         if ($user_id == $_SESSION['user']['id']) {
       ?>
       <li>
-        <button class="btn btn-primary pull-right" id="reg_submit">更新账户信息</button>
+        <button class="btn btn-primary pull-right" id="btn-update-account">更新账户信息</button>
       </li>
       <?php
         }
@@ -73,3 +89,46 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal fade" id="modal-update-account">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">更新账户信息</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <li>
+            <label for="input-real_name">中文姓名: </label>
+            <input class="form-control" placeholder="请输入您的姓名" id="input-real_name" name="input-real_name">
+          </li>
+          <li>
+            <label for="input-sex">性别: </label>
+            <select class="form-control" id="input-sex" name="input-sex">
+              <option value='M'>男</option>
+              <option value='F'>女</option>
+            </select>
+          </li>
+          <li>
+            <label for="input-cell">手机: </label>
+            <input class="form-control" placeholder="请输入您的手机号" id="input-cell" name="input-cell">
+          </li>
+          <li>
+            <label for="input-telephone">固定电话: </label>
+            <input class="form-control" placeholder="请输入您的固定电话" id="input-telephone" name="input-telephone">
+          </li>
+          <li>
+            <label for="input-address">地址: </label>
+            <input class="form-control" placeholder="请输入家庭地址" id="input-address" name="input-address">
+          </li>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" id="submit-update-account">保存</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

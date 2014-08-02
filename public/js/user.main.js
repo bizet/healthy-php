@@ -15,7 +15,8 @@ require(['requirejs.config'] , function() {
           });
           _Pressure_List_View.init({elem: $('#panel-pressure-list')});
           _User_Dialog.init({
-            health_elem: $('#modal-update-health')
+            health_elem: $('#modal-update-health'),
+            account_elem: $('#modal-update-account')
           });
           _Pressure_Dialog_View.init({elem: $('#modal-add-pressure')});
       });

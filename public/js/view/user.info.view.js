@@ -8,6 +8,9 @@
         option.health_elem.find('#btn-update-health').click(function() {
           _Event.trigger('user.info.dialog', 'health.show');
         });
+        option.account_elem.find('#btn-update-account').click(function() {
+          _Event.trigger('user.info.dialog', 'account.show');
+        })
         _Event.register('user.info', this);
         _Event.on('user.info', 'update', this.update);
       };

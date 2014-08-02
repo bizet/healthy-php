@@ -93,8 +93,25 @@ define(["util/conn"], function(_c) {
       else {
         _opt.if_failed.call(object);
       }
-    }, this)
-  }
+    }, this);
+  };
+  User.prototype.update_account = function(_opt, object) {
+    _c.send_to_server({
+      url: '/user/update_account',
+      real_name: this.real_name,
+      sex: this.sex,
+      cell: this.cell,
+      telephone: this.telephone,
+      address: this.address
+    }, function(_b) {
+      if (_b.result == 'ok') {
+        _opt.if_ok.call(object, _b.data);
+      }
+      else {
+        _opt.if_failed.call(object);
+      }
+    }, this);
+  };
 
   return User;
 });

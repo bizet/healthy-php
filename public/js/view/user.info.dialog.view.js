@@ -5,6 +5,31 @@ define(['control/event.center', 'model/user.model', 'model/disease.model', 'util
       var option = null;
       this.init = function(_opt) {
         option = _opt;
+        var account_elem = option.account_elem;
+        account_elem.find('#submit-update-account').click(function() {
+          account_elem.find('form').submit();
+        });
+        account_elem.find('form').validate({
+          submitHandler: function(form) {
+            var u = new _User({
+              'real_name': $(form).find('#input-real_name').val(),
+              'sex': $(form).find('#input-sex').val(),
+              'cell': $(form).find('#input-cell').val(),
+              'telephone': $(form).find('#input-telephone').val(),
+              'address': $(form).find('#input-address').val()
+            });
+            u.update_account({
+              if_ok: function() {
+                account_elem.modal('hide');                
+                _Event.trigger('user.info', 'update'); 
+                return;
+              },
+              if_failed: function() {
+
+              }
+            }, this);
+          }
+        });
         var health_elem = option.health_elem;
         health_elem.find('#submit-update-health').click(function(){
           health_elem.find('form').submit();
@@ -55,6 +80,26 @@ define(['control/event.center', 'model/user.model', 'model/disease.model', 'util
 
         _Event.register('user.info.dialog', this);
         _Event.on('user.info.dialog', 'health.show', this.health_show);
+        _Event.on('user.info.dialog', 'account.show', this.account_show);
+      };
+      this.account_show = function() {
+        var u = new _User({
+          id: $('#user_id').val()
+        });
+        u.get_info_by_id({
+          if_ok: function(user) {
+            var form = option.account_elem.find('form');
+            form.find('#input-real_name').val(user.real_name);
+            form.find('#input-sex').val(user.sex);
+            form.find('#input-cell').val(user.cell);
+            form.find('#input-telephone').val(user.telephone);
+            form.find('#input-address').val(user.address);
+            option.account_elem.modal('show');
+          },
+          if_failed: function() {
+
+          }
+        });
       };
       this.health_show = function() {
         var u = new _User({
