@@ -38,6 +38,20 @@ define(["util/conn"], function(_c) {
       }
     }, this);
   };
+  User.prototype.changepwd = function(_opt, object) {
+    _c.send_to_server({
+      url: '/user/changepwd',
+      old_password: _opt.old_password,
+      new_password: _opt.new_password
+    }, function(_b) {
+      if (_b.result == 'ok') {
+        _opt.if_ok.call(object);
+      }
+      else {
+        _opt.if_failed.call(object);
+      }
+    }, this);
+  };
   User.prototype.login = function(_opt, object) {
     _c.send_to_server({
       url: '/user/login',

@@ -40,6 +40,30 @@
       return $user_info[0];
     }
 
+    public function changepwd(
+      $old_password,
+      $new_password,
+      $user_id) {
+      if ($user_id == '') {
+        throw new Exception('user id could not blank');
+      }
+      $user_id = $this->database->select('user', 'id', array(
+        'id': $user_id,
+        'password': $old_password
+      ));
+      if (!$user_id) {
+        return false;
+      }
+      $num = $this->database->update('user', array(
+          'password' => $new_password
+        ),
+        array(
+          'id' => $user_id
+        )
+      );
+      return $num;
+    }
+
     public function login(
       $username,
       $password)

@@ -55,6 +55,32 @@
       }
     }
 
+    public function changepwd() {
+      $user = new User();
+      try {
+        $res = $user->changepwd(
+          md5($this->var_list['old_password']),
+          md5($this->var_list['new_password']),
+          $this->session['user']['id']
+        );
+        if (!$res) {
+          return array(
+            'result' => 'failed'
+          );
+        }
+        return array(
+          'result' => 'ok'
+        );
+      }
+      catch(Exception $e)
+      {
+        return array(
+          'result' => 'err',
+          'message' => $e->getMessage()
+        );
+      }
+    }
+
     public function login() {
       $user = new User();
       try {

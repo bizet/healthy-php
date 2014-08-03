@@ -69,5 +69,5 @@
   <input type="hidden" id="user_id" value="<?php echo $user_id ?>" />
 </body>
 </html>
-<script data-main="public/js/user.main" src='public/js/lib/require.min.js'>
+<script data-main="public/js/user.main" src='//bizet-cn.com/public/js/lib/require.min.js'>
 </script>
